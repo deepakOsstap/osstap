@@ -1,15 +1,53 @@
-export default function Home() {
+import React from "react";
+import { HeroSection } from "@/components/sections/HeroSection";
+import { CapabilityStrip } from "@/components/sections/CapabilityStrip";
+import { WhatWeDoSection } from "@/components/sections/WhatWeDoSection";
+import { FeaturedServicesSection } from "@/components/sections/FeaturedServicesSection";
+import { WhyOsstapSection } from "@/components/sections/WhyOsstapSection";
+import { TechStackSection } from "@/components/sections/TechStackSection";
+import { ProcessSection } from "@/components/sections/ProcessSection";
+import { GlobalCapabilitySection } from "@/components/sections/GlobalCapabilitySection";
+import { InsightsPreviewSection } from "@/components/sections/InsightsPreviewSection";
+import { FinalCtaSection } from "@/components/sections/FinalCtaSection";
+import { OrganizationJsonLd, WebSiteJsonLd } from "@/lib/seo/schema";
+
+export default function HomePage() {
   return (
-    <div className="flex flex-col min-h-screen items-center justify-center p-8 text-center">
-      <div className="inline-flex items-center gap-2 px-3 py-1 text-xs font-semibold tracking-wide text-brand-accent bg-blue-50 rounded-full mb-4 border border-blue-100">
-        OSSTAP FOUNDATION READY
+    <>
+      <OrganizationJsonLd />
+      <WebSiteJsonLd />
+
+      <div className="flex flex-col w-full">
+        {/* 1. Large Editorial Hero */}
+        <HeroSection />
+
+        {/* 2. Capability / Trust Strip */}
+        <CapabilityStrip />
+
+        {/* 3. What We Do */}
+        <WhatWeDoSection />
+
+        {/* 4. Featured Services */}
+        <FeaturedServicesSection />
+
+        {/* 5. Why Osstap (Strategic Dark Section) */}
+        <WhyOsstapSection />
+
+        {/* 6. Technology Matrix */}
+        <TechStackSection />
+
+        {/* 7. Process (How We Work) */}
+        <ProcessSection />
+
+        {/* 8. Global Capability */}
+        <GlobalCapabilitySection />
+
+        {/* 9. Latest Insights */}
+        <InsightsPreviewSection />
+
+        {/* 10. Final CTA (Strategic Dark Section) */}
+        <FinalCtaSection />
       </div>
-      <h1 className="text-4xl font-bold tracking-tight text-brand-primary sm:text-5xl">
-        We build technology that moves businesses forward.
-      </h1>
-      <p className="mt-4 max-w-xl text-brand-secondary text-lg">
-        Osstap is an engineering-first technology consultancy helping businesses design, build, and scale high-performance digital products.
-      </p>
-    </div>
+    </>
   );
 }
