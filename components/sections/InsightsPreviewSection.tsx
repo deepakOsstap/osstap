@@ -9,7 +9,10 @@ export function InsightsPreviewSection() {
   const latestPosts = blogPostsData.slice(0, 3);
 
   return (
-    <Section id="insights" variant="light">
+    <Section id="insights" variant="light" className="relative">
+      {/* Background ambient lighting */}
+      <div className="absolute top-1/3 left-1/3 w-[500px] h-[500px] bg-[#B4F000]/10 rounded-full blur-[140px] pointer-events-none -z-10" />
+
       <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 sm:mb-16 gap-6">
         <SectionHeading
           eyebrow="Insights & Engineering"
@@ -30,32 +33,33 @@ export function InsightsPreviewSection() {
             key={post.id}
             href={`/blog/${post.slug}`}
             interactive
-            className="group h-full flex flex-col justify-between bg-white"
+            variant="yellowGreen"
+            className="group h-full flex flex-col justify-between hover:border-lime-500 hover:shadow-xl hover:shadow-lime-500/10 transition-all"
           >
             <div>
               {/* Card Meta Top */}
-              <div className="flex items-center justify-between text-xs text-brand-secondary mb-4">
-                <span className="font-semibold text-brand-accent px-2 py-0.5 rounded bg-blue-50 border border-blue-100 uppercase tracking-wider text-[11px]">
+              <div className="flex items-center justify-between text-xs text-slate-500 mb-4">
+                <span className="font-mono font-bold text-lime-900 px-3 py-0.5 rounded-lg bg-lime-100 border border-lime-300 shadow-xs uppercase tracking-wider text-[11px]">
                   {post.category}
                 </span>
-                <span className="flex items-center gap-1 font-mono text-[11px]">
-                  <Clock className="w-3 h-3 text-brand-secondary" />
+                <span className="flex items-center gap-1.5 font-mono text-[11px] text-slate-500 font-medium">
+                  <Clock className="w-3.5 h-3.5 text-[#84CC16]" />
                   {post.readingTime}
                 </span>
               </div>
 
-              <CardTitle className="text-xl group-hover:text-brand-accent transition-colors leading-snug mb-3">
+              <CardTitle className="text-xl group-hover:text-lime-700 transition-colors leading-snug mb-3">
                 {post.title}
               </CardTitle>
 
-              <CardDescription className="line-clamp-3 text-sm">
+              <CardDescription className="line-clamp-3 text-sm text-slate-600">
                 {post.excerpt}
               </CardDescription>
             </div>
 
-            <CardFooter className="pt-6 border-t border-brand-border/60 text-xs font-semibold text-brand-dark group-hover:text-brand-accent transition-colors">
+            <CardFooter className="pt-6 border-t border-slate-200 text-xs font-mono font-bold text-slate-700 group-hover:text-lime-700 transition-colors">
               <span>Read article</span>
-              <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+              <ArrowRight className="w-4 h-4 text-[#84CC16] transition-transform group-hover:translate-x-1" />
             </CardFooter>
           </Card>
         ))}

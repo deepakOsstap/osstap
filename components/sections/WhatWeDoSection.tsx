@@ -57,7 +57,11 @@ export function WhatWeDoSection() {
   ];
 
   return (
-    <Section id="what-we-do" variant="default">
+    <Section id="what-we-do" variant="default" className="relative">
+      {/* Background ambient lighting */}
+      <div className="absolute top-1/2 left-0 w-96 h-96 bg-[#B4F000]/10 rounded-full blur-3xl pointer-events-none -z-10" />
+      <div className="absolute bottom-0 right-0 w-96 h-96 bg-[#B4F000]/10 rounded-full blur-3xl pointer-events-none -z-10" />
+
       <SectionHeading
         eyebrow="Capabilities"
         title="From idea to impact."
@@ -72,23 +76,27 @@ export function WhatWeDoSection() {
               key={item.title}
               href={item.href}
               interactive
-              className="group h-full flex flex-col justify-between"
+              variant="yellowGreen"
+              className="group h-full flex flex-col justify-between transition-all duration-300 hover:border-lime-500 hover:shadow-xl hover:shadow-lime-500/10"
             >
               <div>
                 <CardHeader>
-                  <div className="w-12 h-12 rounded-xl bg-brand-light flex items-center justify-center text-brand-dark group-hover:bg-brand-accent-subtle group-hover:text-brand-accent transition-colors">
+                  <div className="w-12 h-12 rounded-2xl flex items-center justify-center border shadow-xs transition-transform duration-300 group-hover:scale-110 bg-lime-100 text-lime-800 border-lime-300 shadow-[0_0_15px_rgba(132,204,22,0.15)]">
                     <Icon className="w-6 h-6" />
                   </div>
                   <CardArrow />
                 </CardHeader>
-                <CardTitle className="text-xl group-hover:text-brand-accent transition-colors">
+                <CardTitle className="text-xl group-hover:text-lime-700 transition-colors">
                   {item.title}
                 </CardTitle>
                 <CardDescription>{item.description}</CardDescription>
               </div>
 
-              <CardFooter className="text-xs font-semibold text-brand-accent uppercase tracking-wider">
-                <span>View Capability</span>
+              <CardFooter className="text-xs font-mono font-bold uppercase tracking-wider text-lime-800">
+                <span className="flex items-center gap-1.5">
+                  View Capability
+                  <span className="opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all">→</span>
+                </span>
               </CardFooter>
             </Card>
           );

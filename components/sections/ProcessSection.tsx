@@ -34,7 +34,10 @@ export function ProcessSection() {
   ];
 
   return (
-    <Section id="process" variant="light">
+    <Section id="process" variant="light" className="relative">
+      {/* Background ambient lighting */}
+      <div className="absolute top-1/2 right-1/4 w-[500px] h-[500px] bg-[#B4F000]/10 blur-[140px] pointer-events-none -z-10" />
+
       <SectionHeading
         eyebrow="Execution Framework"
         title="How we work"
@@ -45,25 +48,28 @@ export function ProcessSection() {
         {steps.map((step) => (
           <div
             key={step.number}
-            className="p-6 sm:p-8 rounded-2xl bg-white border border-brand-border flex flex-col justify-between relative group hover:border-brand-accent/40 hover:shadow-md transition-all"
+            className="p-6 sm:p-8 rounded-3xl bg-white/95 border border-slate-300 flex flex-col justify-between relative group hover:border-lime-500 hover:shadow-xl hover:shadow-lime-500/10 transition-all duration-300 backdrop-blur-xl overflow-hidden shadow-sm"
           >
+            {/* Top yellow-green highlight strip on hover */}
+            <div className="absolute top-0 left-0 right-0 h-1 bg-[#84CC16] opacity-70 group-hover:opacity-100 transition-opacity" />
+
             <div>
               <div className="flex items-center justify-between mb-6">
-                <span className="font-mono text-xl font-bold text-brand-accent">
+                <span className="font-mono text-2xl font-extrabold text-lime-800">
                   {step.number}
                 </span>
-                <span className="w-2 h-2 rounded-full bg-brand-border group-hover:bg-brand-accent transition-colors" />
+                <span className="w-2.5 h-2.5 rounded-full bg-slate-300 group-hover:bg-[#84CC16] group-hover:shadow-[0_0_10px_#84CC16] transition-all" />
               </div>
 
-              <h3 className="text-2xl font-bold tracking-tight text-brand-dark mb-3">
+              <h3 className="text-2xl font-bold tracking-tight text-slate-900 mb-3 group-hover:text-lime-700 transition-colors">
                 {step.title}
               </h3>
 
-              <p className="text-sm font-medium text-brand-dark mb-3">
+              <p className="text-sm font-semibold text-slate-800 mb-3">
                 {step.summary}
               </p>
 
-              <p className="text-xs text-brand-secondary leading-relaxed">
+              <p className="text-xs text-slate-600 leading-relaxed">
                 {step.details}
               </p>
             </div>

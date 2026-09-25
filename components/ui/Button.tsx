@@ -4,7 +4,7 @@ import { ArrowRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  variant?: "primary" | "accent" | "secondary" | "outline" | "ghost";
+  variant?: "primary" | "accent" | "gradient" | "secondary" | "outline" | "ghost";
   size?: "sm" | "md" | "lg";
   href?: string;
   showArrow?: boolean;
@@ -26,19 +26,21 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
     ref
   ) => {
     const baseStyles =
-      "group inline-flex items-center justify-center font-medium rounded-lg transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none cursor-pointer";
+      "group inline-flex items-center justify-center font-medium rounded-xl transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-lime-500 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-100 disabled:opacity-50 disabled:pointer-events-none cursor-pointer";
 
     const variantStyles = {
       primary:
-        "bg-brand-dark text-white hover:bg-brand-black shadow-sm hover:shadow active:scale-[0.99]",
+        "bg-[#84CC16] text-[#0F172A] font-extrabold hover:bg-[#A3E635] shadow-md shadow-lime-600/20 active:scale-[0.99] border border-[#65A30D]",
       accent:
-        "bg-brand-accent text-white hover:bg-brand-accent-hover shadow-sm hover:shadow active:scale-[0.99]",
+        "bg-[#65A30D] text-white font-bold hover:bg-[#4D7C0F] shadow-md shadow-lime-700/20 active:scale-[0.99]",
+      gradient:
+        "bg-gradient-to-r from-[#84CC16] via-[#A3E635] to-[#BEF264] text-[#0F172A] font-extrabold shadow-md shadow-lime-600/20 hover:brightness-105 active:scale-[0.99] border border-[#65A30D]",
       secondary:
-        "bg-brand-light text-brand-primary border border-brand-border hover:bg-brand-light-hover active:scale-[0.99]",
+        "bg-white text-slate-800 border border-slate-300 hover:border-lime-500 hover:bg-lime-50/50 hover:text-lime-900 active:scale-[0.99] shadow-sm",
       outline:
-        "border border-brand-border text-brand-primary hover:bg-brand-light hover:border-gray-300 active:scale-[0.99]",
+        "border border-lime-600 text-lime-800 hover:bg-lime-100 hover:border-lime-700 active:scale-[0.99]",
       ghost:
-        "text-brand-secondary hover:text-brand-primary hover:bg-brand-light/60",
+        "text-slate-600 hover:text-slate-900 hover:bg-slate-200/60",
     };
 
     const sizeStyles = {

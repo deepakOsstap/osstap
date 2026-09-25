@@ -5,7 +5,7 @@ import { cn } from "@/lib/utils";
 
 interface SectionProps extends React.HTMLAttributes<HTMLElement> {
   containerSize?: "default" | "narrow" | "wide" | "full";
-  variant?: "default" | "light" | "dark";
+  variant?: "default" | "light" | "dark" | "aurora" | "green" | "yellowGreen";
 }
 
 export function Section({
@@ -16,14 +16,17 @@ export function Section({
   ...props
 }: SectionProps) {
   const variantStyles = {
-    default: "bg-white text-brand-primary",
-    light: "bg-brand-light text-brand-primary border-y border-brand-border/60",
-    dark: "bg-brand-black text-white border-y border-brand-dark-border",
+    default: "bg-[#EAECEF] text-slate-900",
+    light: "bg-[#F1F3F5] text-slate-900 border-y border-slate-300",
+    dark: "bg-[#E2E5E9] text-slate-900 border-y border-slate-300",
+    aurora: "bg-gradient-to-b from-[#EAECEF] via-[#F4F6F8] to-[#EAECEF] text-slate-900 border-y border-lime-300/60 relative",
+    green: "bg-gradient-to-b from-[#EAECEF] via-[#F4F6F8] to-[#EAECEF] text-slate-900 border-y border-lime-300/60 relative",
+    yellowGreen: "bg-gradient-to-b from-[#EAECEF] via-[#F4F6F8] to-[#EAECEF] text-slate-900 border-y border-lime-300/60 relative",
   };
 
   return (
     <section
-      className={cn("py-16 sm:py-24 lg:py-28", variantStyles[variant], className)}
+      className={cn("py-16 sm:py-24 lg:py-28 relative overflow-hidden", variantStyles[variant], className)}
       {...props}
     >
       <Container size={containerSize}>{children}</Container>
@@ -49,7 +52,6 @@ export function SectionHeading({
   className,
 }: SectionHeadingProps) {
   const isCenter = align === "center";
-  const isDark = theme === "dark";
 
   return (
     <div
@@ -61,14 +63,13 @@ export function SectionHeading({
     >
       {eyebrow && (
         <div className={cn("mb-4", isCenter ? "flex justify-center" : "")}>
-          <Badge variant={isDark ? "dark" : "accent"}>{eyebrow}</Badge>
+          <Badge variant="accent">{eyebrow}</Badge>
         </div>
       )}
 
       <h2
         className={cn(
-          "text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight leading-[1.15]",
-          isDark ? "text-white" : "text-brand-primary"
+          "text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight leading-[1.15] text-slate-900"
         )}
       >
         {title}
@@ -77,8 +78,7 @@ export function SectionHeading({
       {description && (
         <p
           className={cn(
-            "mt-4 text-base sm:text-lg lg:text-xl leading-relaxed",
-            isDark ? "text-slate-400" : "text-brand-secondary"
+            "mt-4 text-base sm:text-lg lg:text-xl leading-relaxed text-slate-600"
           )}
         >
           {description}

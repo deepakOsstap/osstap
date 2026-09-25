@@ -36,7 +36,10 @@ export function TechStackSection() {
   ];
 
   return (
-    <Section id="technology" variant="default">
+    <Section id="technology" variant="default" className="relative">
+      {/* Background ambient lighting */}
+      <div className="absolute top-1/3 left-1/4 w-[500px] h-[500px] bg-[#B4F000]/10 blur-[140px] rounded-full pointer-events-none -z-10" />
+
       <SectionHeading
         eyebrow="Technology Matrix"
         title="Battle-tested tools for modern, resilient systems."
@@ -47,22 +50,22 @@ export function TechStackSection() {
         {categories.map((cat) => (
           <div
             key={cat.category}
-            className="p-6 sm:p-8 rounded-xl border border-brand-border bg-white hover:border-brand-accent/40 hover:shadow-md transition-all flex flex-col justify-between"
+            className="p-6 sm:p-8 rounded-3xl border border-slate-300 bg-white/95 hover:border-lime-500 hover:shadow-xl hover:shadow-lime-500/10 transition-all duration-300 flex flex-col justify-between backdrop-blur-xl group shadow-sm"
           >
             <div>
-              <div className="text-xs font-mono font-semibold text-brand-accent uppercase tracking-wider mb-2">
+              <div className="inline-block text-xs font-mono font-bold uppercase tracking-wider px-3 py-1 rounded-xl border mb-3 text-lime-900 border-lime-300 bg-lime-100 shadow-xs">
                 {cat.category}
               </div>
-              <h4 className="text-lg font-bold text-brand-dark mb-2">
+              <h4 className="text-lg font-bold text-slate-900 mb-2 group-hover:text-lime-700 transition-colors">
                 {cat.description}
               </h4>
             </div>
 
-            <div className="pt-6 border-t border-brand-border/60 mt-6 flex flex-wrap gap-2">
+            <div className="pt-6 border-t border-slate-200 mt-6 flex flex-wrap gap-2">
               {cat.technologies.map((tech) => (
                 <span
                   key={tech}
-                  className="px-2.5 py-1 text-xs font-medium rounded-md bg-brand-light text-brand-dark border border-brand-border/80"
+                  className="px-2.5 py-1 text-xs font-mono font-medium rounded-lg bg-[#EAECEF] text-slate-800 border border-slate-300 group-hover:border-slate-400 hover:text-lime-900 hover:border-lime-500 hover:bg-lime-50 transition-all cursor-default"
                 >
                   {tech}
                 </span>

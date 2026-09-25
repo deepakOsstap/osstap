@@ -1,29 +1,49 @@
 @import "tailwindcss";
 
 @theme {
-  --color-brand-black: #08090B;
-  --color-brand-dark: #111318;
-  --color-brand-dark-surface: #151821;
-  --color-brand-dark-border: #232936;
-  --color-brand-primary: #111318;
-  --color-brand-secondary: #5A6270;
-  --color-brand-muted: #8892A2;
-  --color-brand-light: #F6F7F9;
-  --color-brand-light-hover: #EEF0F4;
-  --color-brand-border: #E5E7EB;
-  --color-brand-accent: #2563EB;
-  --color-brand-accent-hover: #1D4ED8;
-  --color-brand-accent-subtle: #EFF6FF;
-  --color-brand-accent-border: #BFDBFE;
+  /* 2 Colors: Light Grey Canvas & Yellow-Green Accents */
+  --color-brand-midnight: #EAECEF;
+  --color-brand-dark: #1E293B;
+  --color-brand-dark-surface: #E2E5E9;
+  --color-brand-dark-border: #CBD2D9;
+
+  --color-brand-primary: #0F172A;
+  --color-brand-secondary: #475569;
+  --color-brand-muted: #64748B;
+
+  --color-brand-light: #F4F6F8;
+  --color-brand-light-hover: #EAECEF;
+  --color-brand-border: #D1D5DB;
+
+  /* Primary Accent: Yellow-Green (Lime / Chartreuse) */
+  --color-brand-accent: #65A30D;
+  --color-brand-accent-hover: #4D7C0F;
+  --color-brand-accent-subtle: rgba(163, 230, 53, 0.2);
+  --color-brand-accent-border: rgba(132, 204, 22, 0.4);
+
+  /* Light Grey Palette */
+  --color-grey-canvas: #EAECEF;
+  --color-grey-surface: #E2E5E9;
+  --color-grey-card: #F4F6F8;
+  --color-grey-elevated: #FFFFFF;
+  --color-grey-border: #CBD5E1;
+  --color-grey-border-hover: #94A3B8;
+
+  /* Yellow-Green Tokens */
+  --color-yg-volt: #A3E635;
+  --color-yg-bright: #BEF264;
+  --color-yg-lime: #84CC16;
+  --color-yg-deep: #65A30D;
+  --color-yg-dark: #3F6212;
 
   --font-sans: var(--font-geist-sans), system-ui, -apple-system, sans-serif;
   --font-mono: var(--font-geist-mono), monospace;
 }
 
 :root {
-  --background: #FFFFFF;
-  --foreground: #111318;
-  --primary-accent: #2563EB;
+  --background: #EAECEF;
+  --foreground: #0F172A;
+  --primary-accent: #65A30D;
 }
 
 html {
@@ -31,6 +51,8 @@ html {
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #EAECEF;
+  color: #0F172A;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -42,31 +64,77 @@ html {
   }
 }
 
-/* Glassmorphism subtle helper */
+/* Frosted Light Grey Navbar */
 .glass-nav {
-  background: rgba(255, 255, 255, 0.85);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  background: rgba(234, 236, 239, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(203, 213, 225, 0.8);
 }
 
 .glass-nav-scrolled {
-  background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.04), 0 1px 2px -1px rgba(0, 0, 0, 0.04);
+  background: rgba(234, 236, 239, 0.95);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(132, 204, 22, 0.5);
+  box-shadow: 0 4px 20px -2px rgba(101, 163, 13, 0.1), 0 2px 6px -1px rgba(0, 0, 0, 0.05);
 }
 
-/* Subtle engineering dot matrix background */
+/* Light Grey Glassmorphic Card panel */
+.glass-panel {
+  background: rgba(244, 246, 248, 0.9);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(203, 213, 225, 0.9);
+  box-shadow: 0 8px 30px -4px rgba(0, 0, 0, 0.05);
+}
+
+.glass-panel-hover {
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-panel-hover:hover {
+  transform: translateY(-3px);
+  background: #FFFFFF;
+  border-color: rgba(132, 204, 22, 0.8);
+  box-shadow: 0 16px 35px -8px rgba(101, 163, 13, 0.15), 0 0 1px 1px rgba(132, 204, 22, 0.3);
+}
+
+/* Vibrant Yellow-Green Text Gradient */
+.text-gradient-yg {
+  background-image: linear-gradient(135deg, #3F6212 0%, #65A30D 50%, #84CC16 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Glowing Yellow-Green Glow Utility */
+.glow-yg {
+  box-shadow: 0 0 25px -4px rgba(132, 204, 22, 0.35);
+}
+
+.glow-yg-subtle {
+  box-shadow: 0 0 15px -3px rgba(132, 204, 22, 0.25);
+}
+
+/* Engineering Grid in Light Grey */
 .bg-grid-pattern {
-  background-size: 32px 32px;
+  background-size: 36px 36px;
   background-image: 
-    linear-gradient(to right, rgba(0, 0, 0, 0.04) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(0, 0, 0, 0.04) 1px, transparent 1px);
+    linear-gradient(to right, rgba(101, 163, 13, 0.08) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(101, 163, 13, 0.08) 1px, transparent 1px);
 }
 
-.bg-grid-pattern-dark {
-  background-size: 32px 32px;
-  background-image: 
-    linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+/* Ambient Radial Glows in Yellow-Green */
+.ambient-glow-yg {
+  background: radial-gradient(circle, rgba(163, 230, 53, 0.25) 0%, rgba(132, 204, 22, 0.08) 50%, transparent 70%);
+}
+
+@keyframes pulseGlow {
+  0%, 100% { opacity: 0.45; transform: scale(1); }
+  50% { opacity: 0.75; transform: scale(1.04); }
+}
+
+.animate-pulse-glow {
+  animation: pulseGlow 6s ease-in-out infinite;
 }

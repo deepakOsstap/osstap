@@ -4,7 +4,7 @@ import { ArrowUpRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 interface CardProps extends React.HTMLAttributes<HTMLDivElement> {
-  variant?: "default" | "light" | "dark" | "outline";
+  variant?: "default" | "light" | "dark" | "outline" | "glass" | "aurora" | "green" | "yellowGreen";
   interactive?: boolean;
   href?: string;
   external?: boolean;
@@ -21,23 +21,31 @@ export function Card({
 }: CardProps) {
   const variantStyles = {
     default:
-      "bg-white border border-brand-border text-brand-primary shadow-[0_1px_3px_0_rgba(0,0,0,0.02)]",
+      "bg-white/95 border border-slate-300 text-slate-900 shadow-[0_4px_20px_rgba(0,0,0,0.04)] backdrop-blur-md",
     light:
-      "bg-brand-light border border-brand-border/80 text-brand-primary",
+      "bg-[#F4F6F8] border border-slate-300 text-slate-900 backdrop-blur-md",
     dark:
-      "bg-brand-dark-surface border border-brand-dark-border text-white",
+      "bg-slate-200 border border-slate-300 text-slate-900 shadow-md",
     outline:
-      "bg-transparent border border-brand-border text-brand-primary",
+      "bg-transparent border border-slate-300 text-slate-900",
+    glass:
+      "bg-white/90 border border-slate-300 text-slate-900 backdrop-blur-xl shadow-md",
+    aurora:
+      "bg-gradient-to-b from-white/95 to-slate-50/95 border border-slate-300 text-slate-900 backdrop-blur-xl shadow-md",
+    green:
+      "bg-gradient-to-b from-white/95 to-slate-50/95 border border-slate-300 text-slate-900 backdrop-blur-xl shadow-md",
+    yellowGreen:
+      "bg-gradient-to-b from-white/95 to-slate-50/95 border border-slate-300 text-slate-900 backdrop-blur-xl shadow-md",
   };
 
   const interactiveStyles = interactive || href
-    ? "transition-all duration-200 hover:-translate-y-1 hover:shadow-lg hover:border-brand-accent/40 group cursor-pointer"
+    ? "transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl hover:shadow-lime-600/10 hover:border-lime-500 group cursor-pointer"
     : "";
 
   const content = (
     <div
       className={cn(
-        "rounded-xl p-6 sm:p-8 flex flex-col relative overflow-hidden",
+        "rounded-2xl p-6 sm:p-8 flex flex-col relative overflow-hidden",
         variantStyles[variant],
         interactiveStyles,
         className
@@ -91,7 +99,7 @@ export function CardTitle({
   return (
     <h3
       className={cn(
-        "text-xl sm:text-2xl font-bold tracking-tight text-inherit",
+        "text-xl sm:text-2xl font-bold tracking-tight text-slate-900",
         className
       )}
       {...props}
@@ -109,7 +117,7 @@ export function CardDescription({
   return (
     <p
       className={cn(
-        "text-sm sm:text-base text-brand-secondary leading-relaxed mt-2",
+        "text-sm sm:text-base text-slate-600 leading-relaxed mt-2",
         className
       )}
       {...props}
@@ -138,7 +146,7 @@ export function CardArrow({ className }: { className?: string }) {
   return (
     <div
       className={cn(
-        "w-8 h-8 rounded-full bg-brand-light flex items-center justify-center text-brand-secondary transition-all duration-200 group-hover:bg-brand-accent group-hover:text-white group-hover:translate-x-0.5 group-hover:-translate-y-0.5",
+        "w-8 h-8 rounded-full bg-slate-100 border border-slate-300 flex items-center justify-center text-slate-600 transition-all duration-200 group-hover:bg-[#84CC16] group-hover:text-[#0F172A] group-hover:border-[#65A30D] group-hover:shadow-[0_0_12px_rgba(132,204,22,0.4)] group-hover:translate-x-0.5 group-hover:-translate-y-0.5",
         className
       )}
     >

@@ -44,8 +44,8 @@ export function Navbar() {
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b",
         isScrolled
-          ? "glass-nav-scrolled border-brand-border/80 py-3.5"
-          : "bg-white/80 backdrop-blur-md border-transparent py-5"
+          ? "glass-nav-scrolled py-3.5"
+          : "glass-nav py-5"
       )}
     >
       <Container>
@@ -54,11 +54,11 @@ export function Navbar() {
           <Link
             href="/"
             onClick={closeMobileMenu}
-            className="group flex items-center gap-2 text-xl font-bold tracking-tight text-brand-black transition-opacity hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent rounded"
+            className="group flex items-center gap-2 text-xl font-bold tracking-tight transition-opacity hover:opacity-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-lime-500 rounded-lg"
           >
-            <span className="font-extrabold tracking-tighter text-2xl text-brand-dark flex items-center">
+            <span className="font-extrabold tracking-tighter text-2xl text-slate-900 flex items-center">
               OSSTAP
-              <span className="inline-block w-1.5 h-1.5 rounded-full bg-brand-accent ml-0.5 group-hover:scale-125 transition-transform" />
+              <span className="inline-block w-2.5 h-2.5 rounded-full bg-[#84CC16] ml-1 shadow-sm shadow-lime-500/50 group-hover:scale-125 transition-transform" />
             </span>
           </Link>
 
@@ -74,15 +74,15 @@ export function Navbar() {
                   key={item.href}
                   href={item.href}
                   className={cn(
-                    "px-3.5 py-2 text-sm font-medium rounded-md transition-colors relative",
+                    "px-3.5 py-2 text-sm font-medium rounded-lg transition-all relative",
                     isActive
-                      ? "text-brand-accent font-semibold"
-                      : "text-brand-secondary hover:text-brand-primary hover:bg-brand-light"
+                      ? "text-lime-800 font-bold"
+                      : "text-slate-700 hover:text-slate-900 hover:bg-slate-200/60"
                   )}
                 >
                   {item.label}
                   {isActive && (
-                    <span className="absolute bottom-0 left-3.5 right-3.5 h-0.5 bg-brand-accent rounded-full" />
+                    <span className="absolute bottom-0 left-3.5 right-3.5 h-0.5 bg-[#65A30D] rounded-full shadow-[0_0_8px_#84CC16]" />
                   )}
                 </Link>
               );
@@ -91,7 +91,7 @@ export function Navbar() {
 
           {/* Action CTA */}
           <div className="hidden md:flex items-center gap-3">
-            <Button href="/contact" variant="primary" size="sm" showArrow>
+            <Button href="/contact" variant="gradient" size="sm" showArrow>
               Let&apos;s Talk
             </Button>
           </div>
@@ -101,12 +101,12 @@ export function Navbar() {
             <button
               type="button"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="p-2 rounded-lg text-brand-primary hover:bg-brand-light transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent"
+              className="p-2 rounded-xl text-slate-700 hover:bg-slate-200 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-lime-500"
               aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
               aria-expanded={isMobileMenuOpen}
             >
               {isMobileMenuOpen ? (
-                <X className="w-6 h-6" />
+                <X className="w-6 h-6 text-lime-700" />
               ) : (
                 <Menu className="w-6 h-6" />
               )}
@@ -117,7 +117,7 @@ export function Navbar() {
 
       {/* Mobile Menu Dropdown / Overlay */}
       {isMobileMenuOpen && (
-        <div className="md:hidden fixed inset-x-0 top-full bg-white border-b border-brand-border shadow-xl animate-in slide-in-from-top-2 duration-200">
+        <div className="md:hidden fixed inset-x-0 top-full bg-[#EAECEF]/98 backdrop-blur-2xl border-b border-slate-300 shadow-xl animate-in slide-in-from-top-2 duration-200">
           <div className="px-6 py-8 flex flex-col gap-4 max-h-[calc(100vh-5rem)] overflow-y-auto">
             <nav className="flex flex-col gap-2">
               {siteConfig.mainNav.map((item) => {
@@ -131,23 +131,23 @@ export function Navbar() {
                     href={item.href}
                     onClick={closeMobileMenu}
                     className={cn(
-                      "flex items-center justify-between px-4 py-3 text-base font-medium rounded-lg transition-colors",
+                      "flex items-center justify-between px-4 py-3 text-base font-medium rounded-xl transition-colors",
                       isActive
-                        ? "bg-brand-accent-subtle text-brand-accent font-semibold"
-                        : "text-brand-primary hover:bg-brand-light"
+                        ? "bg-lime-100 text-lime-900 border border-lime-300 font-bold"
+                        : "text-slate-800 hover:bg-slate-200"
                     )}
                   >
                     <span>{item.label}</span>
-                    <ArrowRight className="w-4 h-4 text-brand-secondary opacity-60" />
+                    <ArrowRight className="w-4 h-4 text-lime-700 opacity-80" />
                   </Link>
                 );
               })}
             </nav>
 
-            <div className="pt-4 border-t border-brand-border mt-2 flex flex-col gap-3">
+            <div className="pt-4 border-t border-slate-300 mt-2 flex flex-col gap-3">
               <Button
                 href="/contact"
-                variant="accent"
+                variant="gradient"
                 size="md"
                 showArrow
                 className="w-full justify-center"
@@ -155,7 +155,7 @@ export function Navbar() {
               >
                 Let&apos;s Talk
               </Button>
-              <div className="text-center text-xs text-brand-secondary pt-2">
+              <div className="text-center text-xs text-slate-500 pt-2 font-mono">
                 {siteConfig.tagline}
               </div>
             </div>

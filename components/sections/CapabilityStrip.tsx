@@ -12,21 +12,27 @@ export function CapabilityStrip() {
   ];
 
   return (
-    <div className="border-y border-brand-border bg-brand-light/70 py-6 overflow-hidden">
+    <div className="relative border-y border-slate-300 bg-[#E2E6EA]/90 backdrop-blur-xl py-5 overflow-hidden">
+      {/* Top subtle radiant yellow-green beam */}
+      <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#84CC16]/60 to-transparent" />
+      
       <Container>
         <div className="flex flex-wrap items-center justify-between gap-y-4 gap-x-8 text-center sm:text-left">
-          <div className="text-xs font-semibold uppercase tracking-wider text-brand-secondary/80 w-full sm:w-auto">
+          <div className="text-xs font-mono font-bold uppercase tracking-wider text-lime-800 flex items-center gap-2 w-full sm:w-auto justify-center sm:justify-start">
+            <span className="w-2 h-2 rounded-full bg-[#84CC16] animate-pulse" />
             Core Focus Areas:
           </div>
           <div className="flex flex-wrap items-center justify-center sm:justify-start gap-x-6 sm:gap-x-8 gap-y-3">
             {capabilities.map((item, idx) => (
               <div
                 key={item}
-                className="flex items-center gap-3 text-xs sm:text-sm font-medium text-brand-dark/90"
+                className="flex items-center gap-3 text-xs sm:text-sm font-semibold text-slate-800 transition-colors group cursor-default"
               >
-                <span>{item}</span>
+                <span className="group-hover:translate-x-0.5 group-hover:text-lime-700 transition-all">
+                  {item}
+                </span>
                 {idx < capabilities.length - 1 && (
-                  <span className="w-1.5 h-1.5 rounded-full bg-brand-accent/40 hidden md:inline-block" />
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#84CC16] shadow-[0_0_6px_rgba(132,204,22,0.6)] hidden md:inline-block" />
                 )}
               </div>
             ))}
