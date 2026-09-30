@@ -1,5 +1,7 @@
 "use server";
 
+import { sendInquiryEmail } from "@/lib/mail";
+
 export interface ContactFormData {
   name: string;
   email: string;
@@ -47,8 +49,6 @@ export async function submitContactForm(
     };
   }
 
-  // Simulate server-side processing / webhook integration
-  // In production, this can forward to Resend, SendGrid, HubSpot, or a webhook endpoint.
   console.log("[Osstap Lead Captured]:", {
     name: data.name,
     email: data.email,
@@ -60,8 +60,17 @@ export async function submitContactForm(
     submittedAt: new Date().toISOString(),
   });
 
-  // Artificial delay for smooth UX feedback
-  await new Promise((resolve) => setTimeout(resolve, 600));
+  // Forward project enquiry email to deepakc29@gmail.com
+  const emailResult = await sendInquiryEmail(data);
+
+  if (!emailResult.sent) {
+    console.error("[Osstap Lead Delivery Error]:", emailResult.error);
+    return {
+      success: false,
+      message:
+        "We encountered an issue dispatching the email notification. Please contact us directly at deepakc29@gmail.com.",
+    };
+  }
 
   return {
     success: true,
