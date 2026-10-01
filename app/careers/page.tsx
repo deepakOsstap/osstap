@@ -134,7 +134,7 @@ export default function CareersPage() {
             </p>
           </div>
           <Button
-            href={`mailto:${siteConfig.contact.careersEmail}?subject=General%20Engineering%20Inquiry%20-%20Osstap`}
+            href={`mailto:${siteConfig.contact.recipientEmail}?subject=General%20Engineering%20Inquiry%20-%20Osstap`}
             variant="outline"
             external
           >

@@ -100,7 +100,7 @@ export function Footer() {
               </li>
               <li>
                 <a
-                  href={`mailto:${siteConfig.contact.salesEmail}`}
+                  href={`mailto:${siteConfig.contact.recipientEmail}?subject=Client%20Inquiry%20-%20Osstap`}
                   className="text-sm text-slate-600 hover:text-lime-800 inline-flex items-center gap-1.5 transition-colors font-medium"
                 >
                   <Mail className="w-3.5 h-3.5 opacity-70" />

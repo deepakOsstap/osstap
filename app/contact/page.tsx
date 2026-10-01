@@ -85,7 +85,7 @@ export default function ContactPage() {
                     Client &amp; Partnership Inquiries
                   </div>
                   <a
-                    href={`mailto:${siteConfig.contact.salesEmail}`}
+                    href={`mailto:${siteConfig.contact.recipientEmail}?subject=${encodeURIComponent("Client & Partnership Inquiry - Osstap")}`}
                     className="text-base font-bold text-brand-dark hover:text-brand-accent transition-colors"
                   >
                     {siteConfig.contact.salesEmail}
@@ -122,7 +122,7 @@ export default function ContactPage() {
                     Engineering Careers
                   </div>
                   <a
-                    href={`mailto:${siteConfig.contact.careersEmail}`}
+                    href={`mailto:${siteConfig.contact.recipientEmail}?subject=${encodeURIComponent("Engineering Careers Inquiry - Osstap")}`}
                     className="text-base font-bold text-brand-dark hover:text-brand-accent transition-colors"
                   >
                     {siteConfig.contact.careersEmail}

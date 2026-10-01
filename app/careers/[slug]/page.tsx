@@ -66,7 +66,7 @@ export default async function JobDetailPage({ params }: JobPageProps) {
 
   const otherJobs = openPositionsData.filter((j) => j.slug !== slug).slice(0, 3);
 
-  const applicationMailto = `mailto:${siteConfig.contact.careersEmail}?subject=${encodeURIComponent(
+  const applicationMailto = `mailto:${siteConfig.contact.recipientEmail}?subject=${encodeURIComponent(
     `Application: ${job.title} - [Your Full Name]`
   )}&body=${encodeURIComponent(
     `Hello Osstap Engineering Team,\n\nI am applying for the ${job.title} position.\n\nFull Name: \nLinkedIn: \nGitHub / Portfolio: \nLocation: \nBrief note on your background:\n\n(Please attach your CV / Resume)\n`
@@ -261,7 +261,7 @@ export default async function JobDetailPage({ params }: JobPageProps) {
               <p className="text-[11px] text-slate-400 text-center mt-4">
                 Questions? Email us at{" "}
                 <a
-                  href={`mailto:${siteConfig.contact.careersEmail}`}
+                  href={`mailto:${siteConfig.contact.recipientEmail}?subject=${encodeURIComponent(`Inquiry regarding ${job.title} - Osstap`)}`}
                   className="text-brand-accent hover:underline"
                 >
                   {siteConfig.contact.careersEmail}

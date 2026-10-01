@@ -20,6 +20,7 @@ export interface SiteConfig {
     email: string;
     salesEmail: string;
     careersEmail: string;
+    recipientEmail: string;
     location: string;
   };
   mainNav: NavItem[];
@@ -45,8 +46,9 @@ export const siteConfig: SiteConfig = {
   },
   contact: {
     email: "hello@osstap.com",
-    salesEmail: "deepakc29@gmail.com",
-    careersEmail: "deepakc29@gmail.com",
+    salesEmail: "inquiry@osstap.com",
+    careersEmail: "careers@osstap.com",
+    recipientEmail: "deepakc29@gmail.com",
     location: "Global Distributed Engineering",
   },
   mainNav: [
