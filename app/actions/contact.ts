@@ -60,7 +60,7 @@ export async function submitContactForm(
     submittedAt: new Date().toISOString(),
   });
 
-  // Forward project enquiry email to deepakc29@gmail.com
+  // Forward project enquiry email to d.choudhary@osstap.com
   const emailResult = await sendInquiryEmail(data);
 
   if (!emailResult.sent) {
@@ -68,7 +68,7 @@ export async function submitContactForm(
     return {
       success: false,
       message:
-        "We encountered an issue dispatching the email notification. Please contact us directly at deepakc29@gmail.com.",
+        "We encountered an issue dispatching the email notification. Please contact us directly at d.choudhary@osstap.com.",
     };
   }
 

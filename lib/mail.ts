@@ -1,7 +1,7 @@
 import nodemailer from "nodemailer";
 import { ContactFormData } from "@/app/actions/contact";
 
-export const DEFAULT_RECEIVER_EMAIL = "deepakc29@gmail.com";
+export const DEFAULT_RECEIVER_EMAIL = "d.choudhary@osstap.com";
 
 interface SendInquiryEmailResult {
   sent: boolean;
@@ -204,7 +204,7 @@ function escapeHtml(text: string): string {
 }
 
 /**
- * Sends the inquiry email to the designated receiver (deepakc29@gmail.com).
+ * Sends the inquiry email to the designated receiver (d.choudhary@osstap.com).
  */
 export async function sendInquiryEmail(data: ContactFormData): Promise<SendInquiryEmailResult> {
   const receiverEmail = process.env.CONTACT_RECEIVER_EMAIL || DEFAULT_RECEIVER_EMAIL;

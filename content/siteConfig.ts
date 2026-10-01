@@ -48,7 +48,7 @@ export const siteConfig: SiteConfig = {
     email: "hello@osstap.com",
     salesEmail: "inquiry@osstap.com",
     careersEmail: "careers@osstap.com",
-    recipientEmail: "deepakc29@gmail.com",
+    recipientEmail: "d.choudhary@osstap.com",
     location: "Global Distributed Engineering",
   },
   mainNav: [
